@@ -40,6 +40,15 @@ class HomeViewController: UIViewController {
         
         foodsCollectionView.collectionViewLayout = design
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetail" {
+            if let food = sender as? Food {
+                let detailVC = segue.destination as! DetailFoodViewController
+                detailVC.food = food
+            }
+        }
+    }
 }
 
 extension HomeViewController: PresenterToViewHomeProtocol {
@@ -65,6 +74,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let food = foodList[indexPath.row]
+        performSegue(withIdentifier: "toDetail", sender: food)
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
