@@ -26,6 +26,17 @@ class HomeViewController: UIViewController {
         setupUI()
         
         homePresenterObject?.viewDidLoad()
+        
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .white
+        tabBarController?.tabBar.frame.size.height = 50
+        
+        changeColor(itemAppearance: appearance.stackedLayoutAppearance)
+        changeColor(itemAppearance: appearance.inlineLayoutAppearance)
+        changeColor(itemAppearance: appearance.compactInlineLayoutAppearance)
+        
+        tabBarController?.tabBar.standardAppearance = appearance
+        tabBarController?.tabBar.scrollEdgeAppearance = appearance
     }
     
     private func setupUI() {
@@ -39,6 +50,13 @@ class HomeViewController: UIViewController {
         design.itemSize = CGSize(width: cellWidth, height: cellWidth*1.7)
         
         foodsCollectionView.collectionViewLayout = design
+    }
+    private func changeColor(itemAppearance: UITabBarItemAppearance) {
+        itemAppearance.selected.iconColor = .black
+        itemAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.black]
+        
+        itemAppearance.normal.iconColor = .lightGray
+        itemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.lightGray]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -70,7 +88,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(food.yemek_resim_adi!)") {
             DispatchQueue.main.async {
-                cell.foodİmageView.kf.setImage(with: url)
+                cell.foodImageView.kf.setImage(with: url)
             }
         }
         return cell
