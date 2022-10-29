@@ -16,9 +16,12 @@ class DetailFoodViewController: UIViewController {
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var stepperValueLabel: UILabel!
     
+    var hasFood: [String: Any] = [:]
+    //var count = 0
     var food: Food?
+    var tempFood: [Food]?
     var detailPresenterObject: ViewToPresenterDetailProtocol?
-    var kullaniciAdi = "Fulden"
+    var kullaniciAdi = "sjhdt"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +41,12 @@ class DetailFoodViewController: UIViewController {
     @IBAction func stepperButton(_ sender: UIStepper) {
         let stepperValue = stepper.value
         stepperValueLabel.text = "\(Int(stepperValue))"
+        
+        priceLabel.text = "₺\(Int(stepperValue) * Int((food?.yemek_fiyat)!)!)"
     }
     @IBAction func addToCart(_ sender: Any) {
-        if let name = food?.yemek_adi, let imageName = food?.yemek_resim_adi, let price = food?.yemek_fiyat {
-            detailPresenterObject?.addFood(yemek_adi: name, yemek_resim_adi: imageName, yemek_fiyat: price, yemek_siparis_adet: stepperValueLabel.text!, kullanici_adi: kullaniciAdi)
-        }        
+        if let food = food {
+            detailPresenterObject?.addFood(food: food, count: Int(stepper.value), username: kullaniciAdi)
+        }
     }
 }

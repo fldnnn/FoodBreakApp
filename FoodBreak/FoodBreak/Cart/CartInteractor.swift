@@ -12,7 +12,7 @@ class CartInteractor: PresenterToInteractorCartProtocol {
     var cartPresenter: InteractorToPresenterCartProtocol?
     
     var foodTemp: [SepetYemek]?
-    var kullaniciAdi = "Fulden"
+    var kullaniciAdi = "sjhdt"
     func getCartFoods() {
         let params: Parameters = ["kullanici_adi": kullaniciAdi]
         AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { response in
@@ -23,23 +23,11 @@ class CartInteractor: PresenterToInteractorCartProtocol {
                     if let list = response.sepet_yemekler {
                         DispatchQueue.main.async {
                             self.cartPresenter?.didDataFecth(with: list)
-//                            for i in list {
-//                                if list.contains(where: {
-//                                    $0.yemek_adi == i.yemek_adi }) {
-//                                    let adet = Int(i.yemek_siparis_adet!)
-//                                }
-//
-//                            }
-                            //presenter a tası
-                            let dict = Dictionary(grouping: list, by: {$0.yemek_adi}).mapValues { $0.reduce(0, { Int("\($0)")! + Int("\($1.yemek_siparis_adet ?? "0")")! })}
-                            
-                            //let dict2 = Dictionary(grouping: list, by: {$0.yemek_adi}).mapValues { $0.map({$0.sepet_yemek_id})}
-                            print(dict)
-                            //print(dict2)
                         }
                     }
             }catch{
                 print(error.localizedDescription)
+                self.cartPresenter?.didDataFecth(with: [])
                 }
             }
         }

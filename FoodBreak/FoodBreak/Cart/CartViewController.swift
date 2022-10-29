@@ -35,6 +35,15 @@ extension CartViewController: PresenterToViewCartProtocol {
     func updateView(with cartFoodList: [SepetYemek]) {
         self.cartFoodList = cartFoodList
         self.cartTableView.reloadData()
+        
+        var result = 0
+        for i in cartFoodList {
+            let countItems = Int(i.yemek_siparis_adet!)!
+            let priceItems = Int(i.yemek_fiyat!)!
+            let totalPrice = countItems * priceItems
+            result += totalPrice
+            totalPriceLabel.text = "Toplam fiyat: \(result)₺"
+        }
     }
 }
 
@@ -47,8 +56,16 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         let foods = cartFoodList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cartTableViewCell", for: indexPath) as! CartTableViewCell
         cell.cartNameLabel.text = foods.yemek_adi
-        cell.cartPriceLabel.text = foods.yemek_fiyat
-        cell.cartCountLabel.text = foods.yemek_siparis_adet
+        
+        var foodTotalPrice = 0
+        if let p = foods.yemek_fiyat, let c = foods.yemek_siparis_adet {
+            let price = Int(p)
+            let count = Int(c)
+            foodTotalPrice = (price!)*(count!)
+        }
+        cell.cartPriceLabel.text = "\(foodTotalPrice)₺"
+        cell.cartCountLabel.text = "\(foods.yemek_siparis_adet!) adet"
+        
         if let url = URL(string: "http://kasimadalan.pe.hu/yemekler/resimler/\(foods.yemek_resim_adi!)") {
             DispatchQueue.main.async {
                 cell.cartImageView.kf.setImage(with: url)
