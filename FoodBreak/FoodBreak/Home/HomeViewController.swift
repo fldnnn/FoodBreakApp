@@ -10,7 +10,7 @@ import Kingfisher
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var foodsCollectionView: UICollectionView!
+    @IBOutlet private weak var foodsCollectionView: UICollectionView!
     
     var foodList = [Food]()
     

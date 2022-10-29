@@ -34,7 +34,7 @@ class CartViewController: UIViewController {
 extension CartViewController: PresenterToViewCartProtocol {
     func updateView(with cartFoodList: [SepetYemek]) {
         self.cartFoodList = cartFoodList
-        self.cartTableView.reloadData()
+        cartTableView.reloadData()
         
         var result = 0
         for i in cartFoodList {

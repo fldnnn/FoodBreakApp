@@ -18,7 +18,6 @@ protocol PresenterToInteractorHomeProtocol {
     var homePresenter: InteractorToPresenterHomeProtocol? {get set}
     
     func getFoods()
-    
 }
 
 protocol InteractorToPresenterHomeProtocol {

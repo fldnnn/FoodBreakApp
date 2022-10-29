@@ -27,15 +27,12 @@ class DetailFoodInteractor:PresenterToInteractorDetailProtocol {
                     
                     self.addFoodToBasket(food: newFood, count: Int(sameFood!.yemek_siparis_adet!)!, username: (sameFood?.kullanici_adi!)!)
                 }
-                
-                
-            }else{
+            } else {
                 self.addFoodToBasket(food: food, count: count, username: username)
             }
         }
-        
-        
     }
+
     func addFoodToBasket(food: Food, count: Int, username: String) {
         let params: Parameters = ["yemek_adi": food.yemek_adi!, "yemek_resim_adi": food.yemek_resim_adi!, "yemek_fiyat": food.yemek_fiyat!, "yemek_siparis_adet": count, "kullanici_adi": username]
         
@@ -67,7 +64,8 @@ class DetailFoodInteractor:PresenterToInteractorDetailProtocol {
     }
     func getCartFood(username: String, completion: @escaping () -> Void) {
         let params: Parameters = ["kullanici_adi": username]
-        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { response in
+        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { [weak self] response in
+            guard let self = self else { return }
             if let data = response.data {
                 do {
                     let response = try JSONDecoder().decode(CartFoods.self, from: data)
@@ -88,9 +86,8 @@ class DetailFoodInteractor:PresenterToInteractorDetailProtocol {
     
     func hasFood(food: Food) -> SepetYemek? {
         let sameFood = cartFoodList.first {$0.yemek_adi == food.yemek_adi}
-        print("here \(sameFood)")
-        if sameFood != nil {
-            return sameFood!
+        if let sameFood = sameFood {
+            return sameFood
         }
         return nil
     }

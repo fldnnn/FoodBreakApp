@@ -10,11 +10,11 @@ import Kingfisher
 
 class DetailFoodViewController: UIViewController {
 
-    @IBOutlet weak var detailImageView: UIImageView!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var stepperValueLabel: UILabel!
+    @IBOutlet private weak var detailImageView: UIImageView!
+    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var stepper: UIStepper!
+    @IBOutlet private weak var stepperValueLabel: UILabel!
     
     var hasFood: [String: Any] = [:]
     //var count = 0
@@ -38,13 +38,15 @@ class DetailFoodViewController: UIViewController {
             }
         }
     }
-    @IBAction func stepperButton(_ sender: UIStepper) {
+
+    @IBAction private func stepperButton(_ sender: UIStepper) {
         let stepperValue = stepper.value
         stepperValueLabel.text = "\(Int(stepperValue))"
         
         priceLabel.text = "₺\(Int(stepperValue) * Int((food?.yemek_fiyat)!)!)"
     }
-    @IBAction func addToCart(_ sender: Any) {
+
+    @IBAction private func addToCart(_ sender: Any) {
         if let food = food {
             detailPresenterObject?.addFood(food: food, count: Int(stepper.value), username: kullaniciAdi)
         }

@@ -12,7 +12,8 @@ class HomeInteractor: PresenterToInteractorHomeProtocol {
     var homePresenter: InteractorToPresenterHomeProtocol?
     
     func getFoods() {
-        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { response in
+        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { [weak self] response in
+            guard let self = self else { return }
             if let data = response.data {
                 do {
                     let response = try JSONDecoder().decode(Foods.self, from: data)

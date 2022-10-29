@@ -15,7 +15,8 @@ class CartInteractor: PresenterToInteractorCartProtocol {
     var kullaniciAdi = "sjhdt"
     func getCartFoods() {
         let params: Parameters = ["kullanici_adi": kullaniciAdi]
-        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { response in
+        AF.request("http://kasimadalan.pe.hu/yemekler/sepettekiYemekleriGetir.php", method: .post, parameters: params).response { [weak self] response in
+            guard let self = self else { return }
             if let data = response.data {
                 do {
                     let response = try JSONDecoder().decode(CartFoods.self, from: data)
@@ -25,7 +26,7 @@ class CartInteractor: PresenterToInteractorCartProtocol {
                             self.cartPresenter?.didDataFecth(with: list)
                         }
                     }
-            }catch{
+            } catch {
                 print(error.localizedDescription)
                 self.cartPresenter?.didDataFecth(with: [])
                 }
@@ -34,13 +35,14 @@ class CartInteractor: PresenterToInteractorCartProtocol {
     }
     func deleteSelectedFood(with sepet_yemek_id: Int) {
         let params: Parameters = ["sepet_yemek_id": sepet_yemek_id, "kullanici_adi": kullaniciAdi]
-        AF.request("http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php", method: .post, parameters: params).response { response in
+        AF.request("http://kasimadalan.pe.hu/yemekler/sepettenYemekSil.php", method: .post, parameters: params).response { [weak self] response in
+            guard let self = self else { return }
             if let data = response.data {
-                do{
+                do {
                     let response = try JSONSerialization.jsonObject(with: data)
                     print(response)
                     self.getCartFoods()
-                }catch{
+                } catch {
                     print(error.localizedDescription)
                 }
             }
