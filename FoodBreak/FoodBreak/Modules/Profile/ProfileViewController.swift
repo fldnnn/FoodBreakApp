@@ -9,10 +9,12 @@ import UIKit
 import FirebaseAuth
 
 class ProfileViewController: UIViewController {
-
+    @IBOutlet weak var logOutOutlet: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        logOutOutlet.cornerButton()
     }
     
 

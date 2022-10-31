@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTf: UITextField!
     @IBOutlet weak var passwordConfirmTf: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var signUpOutlet: UIButton!
     
     var signUpPresenter: ViewToPresenterSignUpProtocol?
 
@@ -24,6 +25,7 @@ class SignUpViewController: UIViewController {
         errorLabel.alpha = 0
         
         SignUpRouter.createModule(ref: self)
+        signUpOutlet.cornerButton()
     }
     
     @IBAction func signUpButton(_ sender: Any) {

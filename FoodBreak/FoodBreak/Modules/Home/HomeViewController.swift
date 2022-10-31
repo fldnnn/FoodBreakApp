@@ -24,7 +24,9 @@ class HomeViewController: UIViewController {
         
         HomeRouter.createModule(ref: self)
         setupUI()
-        
+
+        navigationItem.title = " "
+
         homePresenterObject?.viewDidLoad()
         
         let appearance = UITabBarAppearance()
@@ -47,7 +49,7 @@ class HomeViewController: UIViewController {
         
         let screenWidth = UIScreen.main.bounds.width
         let cellWidth = (screenWidth - 30) / 2
-        design.itemSize = CGSize(width: cellWidth, height: cellWidth*1.7)
+        design.itemSize = CGSize(width: cellWidth, height: cellWidth*1.5)
         
         foodsCollectionView.collectionViewLayout = design
     }
@@ -91,6 +93,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.foodImageView.kf.setImage(with: url)
             }
         }
+        cell.addCornerCell()
         return cell
     }
     

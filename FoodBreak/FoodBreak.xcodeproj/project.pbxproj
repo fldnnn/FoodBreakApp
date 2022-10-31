@@ -48,6 +48,9 @@
 		31831022290ED97100AE2D65 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31831021290ED97100AE2D65 /* Switcher.swift */; };
 		31831025290EE66C00AE2D65 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31831024290EE66C00AE2D65 /* ProfileViewController.swift */; };
 		31831028290F454E00AE2D65 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31831027290F454E00AE2D65 /* String+Ext.swift */; };
+		31957097291034FD0078D34A /* Pacifico-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 31957096291034FD0078D34A /* Pacifico-Regular.ttf */; };
+		31B9004D29107055007EA59F /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B9004C29107055007EA59F /* UIButton+Ext.swift */; };
+		31B9004F29108434007EA59F /* View+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31B9004E29108434007EA59F /* View+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +94,9 @@
 		31831021290ED97100AE2D65 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		31831024290EE66C00AE2D65 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		31831027290F454E00AE2D65 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		31957096291034FD0078D34A /* Pacifico-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pacifico-Regular.ttf"; sourceTree = "<group>"; };
+		31B9004C29107055007EA59F /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		31B9004E29108434007EA59F /* View+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 				31831020290ED95500AE2D65 /* RootView */,
 				31792E3329060A8900E2E4B4 /* Entity */,
 				3183102A290F602500AE2D65 /* Modules */,
+				319570932910321A0078D34A /* Fonts */,
 				31792E1E2905E23700E2E4B4 /* Main.storyboard */,
 				31792E212905E23B00E2E4B4 /* Assets.xcassets */,
 				31792E232905E23B00E2E4B4 /* LaunchScreen.storyboard */,
@@ -265,6 +272,8 @@
 			isa = PBXGroup;
 			children = (
 				31831027290F454E00AE2D65 /* String+Ext.swift */,
+				31B9004C29107055007EA59F /* UIButton+Ext.swift */,
+				31B9004E29108434007EA59F /* View+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -279,6 +288,14 @@
 				31792E5729073A8F00E2E4B4 /* Cart */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		319570932910321A0078D34A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				31957096291034FD0078D34A /* Pacifico-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,6 +368,7 @@
 			files = (
 				31792E252905E23B00E2E4B4 /* LaunchScreen.storyboard in Resources */,
 				31571C85290DEDB300654C48 /* GoogleService-Info.plist in Resources */,
+				31957097291034FD0078D34A /* Pacifico-Regular.ttf in Resources */,
 				31792E222905E23B00E2E4B4 /* Assets.xcassets in Resources */,
 				31792E202905E23700E2E4B4 /* Main.storyboard in Resources */,
 			);
@@ -393,7 +411,9 @@
 				31792E2F2905F59700E2E4B4 /* FoodsCollectionViewCell.swift in Sources */,
 				31792E4E2906E0D900E2E4B4 /* DetailFoodViewController.swift in Sources */,
 				31792E6129073AEF00E2E4B4 /* CartRouter.swift in Sources */,
+				31B9004D29107055007EA59F /* UIButton+Ext.swift in Sources */,
 				31792E1B2905E23700E2E4B4 /* SceneDelegate.swift in Sources */,
+				31B9004F29108434007EA59F /* View+Ext.swift in Sources */,
 				31792E3729060BFD00E2E4B4 /* HomeInteractor.swift in Sources */,
 				31792E3B29060C1200E2E4B4 /* HomeRouter.swift in Sources */,
 				31792E3929060C0700E2E4B4 /* HomePresenter.swift in Sources */,

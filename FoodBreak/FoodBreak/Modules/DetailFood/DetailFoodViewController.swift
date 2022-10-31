@@ -16,6 +16,7 @@ class DetailFoodViewController: UIViewController {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var stepper: UIStepper!
     @IBOutlet private weak var stepperValueLabel: UILabel!
+    @IBOutlet weak var addToCartOutlet: UIButton!
     
     var food: Food?
     var detailPresenterObject: ViewToPresenterDetailProtocol?
@@ -24,7 +25,11 @@ class DetailFoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DetailFoodRouter.createModule(ref: self)
-        navigationItem.backButtonTitle = ""
+        addToCartOutlet.cornerButton()
+        addToCartOutlet.backgroundColor = .black
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationItem.backButtonTitle = " "
+        detailImageView.addShadow()
         if let f = food {
             priceLabel.text = "₺\(f.yemek_fiyat!)"
             nameLabel.text = f.yemek_adi

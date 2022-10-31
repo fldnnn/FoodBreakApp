@@ -22,7 +22,6 @@ class CartViewController: UIViewController {
         super.viewDidLoad()
         
         CartRouter.createModule(ref: self)
-        
         cartTableView.delegate = self
         cartTableView.dataSource = self
     

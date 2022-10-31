@@ -14,6 +14,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var emailLoginTf: UITextField!
     @IBOutlet weak var passwordLoginTf: UITextField!
     @IBOutlet weak var loginErrorLabel: UILabel!
+    @IBOutlet weak var signInOutlet: UIButton!
+    @IBOutlet weak var signUpOutlet: UIButton!
     
     var signInPresenter: ViewToPresenterSignInProtocol?
 
@@ -22,6 +24,8 @@ class SignInViewController: UIViewController {
         loginErrorLabel.alpha = 0
         
         SignInRouter.createModuler(ref: self)
+        signUpOutlet.cornerButton()
+        signInOutlet.cornerButton()
     }
     
     @IBAction func loginButton(_ sender: Any) {
