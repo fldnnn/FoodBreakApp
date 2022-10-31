@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import FirebaseAuth
 
 class DetailFoodViewController: UIViewController {
 
@@ -16,17 +17,14 @@ class DetailFoodViewController: UIViewController {
     @IBOutlet private weak var stepper: UIStepper!
     @IBOutlet private weak var stepperValueLabel: UILabel!
     
-    var hasFood: [String: Any] = [:]
-    //var count = 0
     var food: Food?
-    var tempFood: [Food]?
     var detailPresenterObject: ViewToPresenterDetailProtocol?
-    var kullaniciAdi = "sjhdt"
+    var kullaniciAdi = Auth.auth().currentUser!.email
     
     override func viewDidLoad() {
         super.viewDidLoad()
         DetailFoodRouter.createModule(ref: self)
-        
+        navigationItem.backButtonTitle = ""
         if let f = food {
             priceLabel.text = "₺\(f.yemek_fiyat!)"
             nameLabel.text = f.yemek_adi
@@ -48,7 +46,7 @@ class DetailFoodViewController: UIViewController {
 
     @IBAction private func addToCart(_ sender: Any) {
         if let food = food {
-            detailPresenterObject?.addFood(food: food, count: Int(stepper.value), username: kullaniciAdi)
+            detailPresenterObject?.addFood(food: food, count: Int(stepper.value), username: kullaniciAdi!)
         }
     }
 }

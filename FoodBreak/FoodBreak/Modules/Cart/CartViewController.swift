@@ -6,12 +6,13 @@
 //
 
 import UIKit
-import SwiftUI
 
 class CartViewController: UIViewController {
 
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
+    @IBOutlet weak var emptyStateView: UIView!
+    
     
     var cartFoodList = [SepetYemek]()
     
@@ -36,20 +37,32 @@ extension CartViewController: PresenterToViewCartProtocol {
         self.cartFoodList = cartFoodList
         cartTableView.reloadData()
         
-        var result = 0
-        for i in cartFoodList {
-            let countItems = Int(i.yemek_siparis_adet!)!
-            let priceItems = Int(i.yemek_fiyat!)!
-            let totalPrice = countItems * priceItems
-            result += totalPrice
-            totalPriceLabel.text = "Toplam fiyat: \(result)₺"
+        if cartFoodList.count == 0 {
+            totalPriceLabel.isHidden = true
+        } else {
+            var result = 0
+            for i in cartFoodList {
+                let countItems = Int(i.yemek_siparis_adet!)!
+                let priceItems = Int(i.yemek_fiyat!)!
+                let totalPrice = countItems * priceItems
+                result += totalPrice
+                totalPriceLabel.isHidden = false
+                totalPriceLabel.text = "Toplam fiyat: \(result)₺"
+            }
         }
     }
 }
 
 extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        cartFoodList.count
+        if cartFoodList.count == 0 {
+            emptyStateView.isHidden = false
+            return cartFoodList.count
+        } else {
+            emptyStateView.isHidden = true
+            return cartFoodList.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +90,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         let deleteAction = UIContextualAction(style: .destructive, title: "Sil"){(ca, v, b) in
             let foods = self.cartFoodList[indexPath.row]
             
-            let alert = UIAlertController(title: "Silme İşlemi", message: "\(foods.yemek_resim_adi!) silinsin mi?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Silme İşlemi", message: "\(foods.yemek_adi!) silinsin mi?", preferredStyle: .alert)
             
             let cancelAction = UIAlertAction(title: "İptal", style: .cancel)
             alert.addAction(cancelAction)

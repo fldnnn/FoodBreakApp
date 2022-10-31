@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31571C66290DA02000654C48 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 31571C65290DA02000654C48 /* FirebaseAuth */; };
+		31571C70290DA1D100654C48 /* SignUpContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C6A290DA1D000654C48 /* SignUpContract.swift */; };
+		31571C71290DA1D100654C48 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C6B290DA1D000654C48 /* SignUpPresenter.swift */; };
+		31571C72290DA1D100654C48 /* SignUpRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C6C290DA1D000654C48 /* SignUpRouter.swift */; };
+		31571C73290DA1D100654C48 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C6D290DA1D000654C48 /* SignUpViewController.swift */; };
+		31571C74290DA1D100654C48 /* SignUpInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C6E290DA1D000654C48 /* SignUpInteractor.swift */; };
+		31571C7F290DA85100654C48 /* SignInContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C79290DA85100654C48 /* SignInContract.swift */; };
+		31571C80290DA85100654C48 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C7A290DA85100654C48 /* SignInPresenter.swift */; };
+		31571C81290DA85100654C48 /* SignInRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C7B290DA85100654C48 /* SignInRouter.swift */; };
+		31571C82290DA85100654C48 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C7C290DA85100654C48 /* SignInViewController.swift */; };
+		31571C83290DA85100654C48 /* SignInInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31571C7D290DA85100654C48 /* SignInInteractor.swift */; };
+		31571C85290DEDB300654C48 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 31571C84290DEDB300654C48 /* GoogleService-Info.plist */; };
 		31792E192905E23700E2E4B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E182905E23700E2E4B4 /* AppDelegate.swift */; };
 		31792E1B2905E23700E2E4B4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E1A2905E23700E2E4B4 /* SceneDelegate.swift */; };
 		31792E1D2905E23700E2E4B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E1C2905E23700E2E4B4 /* HomeViewController.swift */; };
@@ -33,9 +45,23 @@
 		31792E6129073AEF00E2E4B4 /* CartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E6029073AEF00E2E4B4 /* CartRouter.swift */; };
 		31792E642907402E00E2E4B4 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E632907402E00E2E4B4 /* CartTableViewCell.swift */; };
 		31792E662907446D00E2E4B4 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E652907446D00E2E4B4 /* Cart.swift */; };
+		31831022290ED97100AE2D65 /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31831021290ED97100AE2D65 /* Switcher.swift */; };
+		31831025290EE66C00AE2D65 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31831024290EE66C00AE2D65 /* ProfileViewController.swift */; };
+		31831028290F454E00AE2D65 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31831027290F454E00AE2D65 /* String+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		31571C6A290DA1D000654C48 /* SignUpContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContract.swift; sourceTree = "<group>"; };
+		31571C6B290DA1D000654C48 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
+		31571C6C290DA1D000654C48 /* SignUpRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpRouter.swift; sourceTree = "<group>"; };
+		31571C6D290DA1D000654C48 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		31571C6E290DA1D000654C48 /* SignUpInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInteractor.swift; sourceTree = "<group>"; };
+		31571C79290DA85100654C48 /* SignInContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInContract.swift; sourceTree = "<group>"; };
+		31571C7A290DA85100654C48 /* SignInPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
+		31571C7B290DA85100654C48 /* SignInRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInRouter.swift; sourceTree = "<group>"; };
+		31571C7C290DA85100654C48 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		31571C7D290DA85100654C48 /* SignInInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInInteractor.swift; sourceTree = "<group>"; };
+		31571C84290DEDB300654C48 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		31792E152905E23700E2E4B4 /* FoodBreak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodBreak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31792E182905E23700E2E4B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		31792E1A2905E23700E2E4B4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +88,9 @@
 		31792E6029073AEF00E2E4B4 /* CartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartRouter.swift; sourceTree = "<group>"; };
 		31792E632907402E00E2E4B4 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		31792E652907446D00E2E4B4 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		31831021290ED97100AE2D65 /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
+		31831024290EE66C00AE2D65 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		31831027290F454E00AE2D65 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31792E4A2906C69D00E2E4B4 /* Kingfisher in Frameworks */,
+				31571C66290DA02000654C48 /* FirebaseAuth in Frameworks */,
 				31792E3E290616C800E2E4B4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +107,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31571C67290DA17B00654C48 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				31571C68290DA1B000654C48 /* SignUp */,
+				31571C77290DA83700654C48 /* SignIn */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		31571C68290DA1B000654C48 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				31571C6A290DA1D000654C48 /* SignUpContract.swift */,
+				31571C6D290DA1D000654C48 /* SignUpViewController.swift */,
+				31571C6E290DA1D000654C48 /* SignUpInteractor.swift */,
+				31571C6B290DA1D000654C48 /* SignUpPresenter.swift */,
+				31571C6C290DA1D000654C48 /* SignUpRouter.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		31571C77290DA83700654C48 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				31571C79290DA85100654C48 /* SignInContract.swift */,
+				31571C7C290DA85100654C48 /* SignInViewController.swift */,
+				31571C7D290DA85100654C48 /* SignInInteractor.swift */,
+				31571C7A290DA85100654C48 /* SignInPresenter.swift */,
+				31571C7B290DA85100654C48 /* SignInRouter.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
 		31792E0C2905E23700E2E4B4 = {
 			isa = PBXGroup;
 			children = (
@@ -96,15 +159,16 @@
 		31792E172905E23700E2E4B4 /* FoodBreak */ = {
 			isa = PBXGroup;
 			children = (
-				31792E2D2905EF5D00E2E4B4 /* Delegates */,
+				31792E2D2905EF5D00E2E4B4 /* App */,
+				31831026290F453600AE2D65 /* Extensions */,
+				31831020290ED95500AE2D65 /* RootView */,
 				31792E3329060A8900E2E4B4 /* Entity */,
-				31792E2C2905EF3800E2E4B4 /* Home */,
-				31792E4B2906E07700E2E4B4 /* DetailFood */,
-				31792E5729073A8F00E2E4B4 /* Cart */,
+				3183102A290F602500AE2D65 /* Modules */,
 				31792E1E2905E23700E2E4B4 /* Main.storyboard */,
 				31792E212905E23B00E2E4B4 /* Assets.xcassets */,
 				31792E232905E23B00E2E4B4 /* LaunchScreen.storyboard */,
 				31792E262905E23B00E2E4B4 /* Info.plist */,
+				31571C84290DEDB300654C48 /* GoogleService-Info.plist */,
 			);
 			path = FoodBreak;
 			sourceTree = "<group>";
@@ -122,13 +186,13 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		31792E2D2905EF5D00E2E4B4 /* Delegates */ = {
+		31792E2D2905EF5D00E2E4B4 /* App */ = {
 			isa = PBXGroup;
 			children = (
 				31792E182905E23700E2E4B4 /* AppDelegate.swift */,
 				31792E1A2905E23700E2E4B4 /* SceneDelegate.swift */,
 			);
-			path = Delegates;
+			path = App;
 			sourceTree = "<group>";
 		};
 		31792E3329060A8900E2E4B4 /* Entity */ = {
@@ -143,8 +207,8 @@
 		31792E4B2906E07700E2E4B4 /* DetailFood */ = {
 			isa = PBXGroup;
 			children = (
-				31792E4D2906E0D900E2E4B4 /* DetailFoodViewController.swift */,
 				31792E4F2906F44800E2E4B4 /* DetailFoodContract.swift */,
+				31792E4D2906E0D900E2E4B4 /* DetailFoodViewController.swift */,
 				31792E512906F5A800E2E4B4 /* DetailFoodInteractor.swift */,
 				31792E532906F5B300E2E4B4 /* DetailFoodPresenter.swift */,
 				31792E552906F5BE00E2E4B4 /* DetailFoodRouter.swift */,
@@ -164,10 +228,10 @@
 			isa = PBXGroup;
 			children = (
 				31792E622907401200E2E4B4 /* Cell */,
-				31792E5829073AA800E2E4B4 /* CartViewController.swift */,
 				31792E5A29073ABF00E2E4B4 /* CartContract.swift */,
-				31792E5C29073AD600E2E4B4 /* CartPresenter.swift */,
+				31792E5829073AA800E2E4B4 /* CartViewController.swift */,
 				31792E5E29073AE400E2E4B4 /* CartInteractor.swift */,
+				31792E5C29073AD600E2E4B4 /* CartPresenter.swift */,
 				31792E6029073AEF00E2E4B4 /* CartRouter.swift */,
 			);
 			path = Cart;
@@ -179,6 +243,42 @@
 				31792E632907402E00E2E4B4 /* CartTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		31831020290ED95500AE2D65 /* RootView */ = {
+			isa = PBXGroup;
+			children = (
+				31831021290ED97100AE2D65 /* Switcher.swift */,
+			);
+			path = RootView;
+			sourceTree = "<group>";
+		};
+		31831023290EE65200AE2D65 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				31831024290EE66C00AE2D65 /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		31831026290F453600AE2D65 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				31831027290F454E00AE2D65 /* String+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3183102A290F602500AE2D65 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				31831023290EE65200AE2D65 /* Profile */,
+				31792E2C2905EF3800E2E4B4 /* Home */,
+				31571C67290DA17B00654C48 /* Login */,
+				31792E4B2906E07700E2E4B4 /* DetailFood */,
+				31792E5729073A8F00E2E4B4 /* Cart */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +300,7 @@
 			packageProductDependencies = (
 				31792E3D290616C800E2E4B4 /* Alamofire */,
 				31792E492906C69D00E2E4B4 /* Kingfisher */,
+				31571C65290DA02000654C48 /* FirebaseAuth */,
 			);
 			productName = FoodBreak;
 			productReference = 31792E152905E23700E2E4B4 /* FoodBreak.app */;
@@ -232,6 +333,7 @@
 			packageReferences = (
 				31792E3C290616C800E2E4B4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				31792E482906C69D00E2E4B4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				31571C64290DA02000654C48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 31792E162905E23700E2E4B4 /* Products */;
 			projectDirPath = "";
@@ -248,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31792E252905E23B00E2E4B4 /* LaunchScreen.storyboard in Resources */,
+				31571C85290DEDB300654C48 /* GoogleService-Info.plist in Resources */,
 				31792E222905E23B00E2E4B4 /* Assets.xcassets in Resources */,
 				31792E202905E23700E2E4B4 /* Main.storyboard in Resources */,
 			);
@@ -260,16 +363,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31571C74290DA1D100654C48 /* SignUpInteractor.swift in Sources */,
 				31792E5D29073AD600E2E4B4 /* CartPresenter.swift in Sources */,
+				31571C71290DA1D100654C48 /* SignUpPresenter.swift in Sources */,
 				31792E1D2905E23700E2E4B4 /* HomeViewController.swift in Sources */,
+				31571C83290DA85100654C48 /* SignInInteractor.swift in Sources */,
+				31571C80290DA85100654C48 /* SignInPresenter.swift in Sources */,
+				31831025290EE66C00AE2D65 /* ProfileViewController.swift in Sources */,
 				31792E542906F5B300E2E4B4 /* DetailFoodPresenter.swift in Sources */,
+				31571C7F290DA85100654C48 /* SignInContract.swift in Sources */,
+				31571C81290DA85100654C48 /* SignInRouter.swift in Sources */,
+				31571C82290DA85100654C48 /* SignInViewController.swift in Sources */,
+				31571C73290DA1D100654C48 /* SignUpViewController.swift in Sources */,
 				31792E192905E23700E2E4B4 /* AppDelegate.swift in Sources */,
 				31792E562906F5BE00E2E4B4 /* DetailFoodRouter.swift in Sources */,
 				31792E502906F44800E2E4B4 /* DetailFoodContract.swift in Sources */,
 				31792E5B29073ABF00E2E4B4 /* CartContract.swift in Sources */,
+				31571C70290DA1D100654C48 /* SignUpContract.swift in Sources */,
 				31792E642907402E00E2E4B4 /* CartTableViewCell.swift in Sources */,
 				31792E522906F5A800E2E4B4 /* DetailFoodInteractor.swift in Sources */,
+				31831022290ED97100AE2D65 /* Switcher.swift in Sources */,
+				31831028290F454E00AE2D65 /* String+Ext.swift in Sources */,
 				31792E5F29073AE400E2E4B4 /* CartInteractor.swift in Sources */,
+				31571C72290DA1D100654C48 /* SignUpRouter.swift in Sources */,
 				31792E662907446D00E2E4B4 /* Cart.swift in Sources */,
 				31792E322905FC2600E2E4B4 /* HomeContract.swift in Sources */,
 				31792E5929073AA800E2E4B4 /* CartViewController.swift in Sources */,
@@ -502,6 +618,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		31571C64290DA02000654C48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 		31792E3C290616C800E2E4B4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -521,6 +645,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		31571C65290DA02000654C48 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31571C64290DA02000654C48 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
 		31792E3D290616C800E2E4B4 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 31792E3C290616C800E2E4B4 /* XCRemoteSwiftPackageReference "Alamofire" */;
