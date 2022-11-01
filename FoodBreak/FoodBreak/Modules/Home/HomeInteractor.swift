@@ -29,5 +29,31 @@ class HomeInteractor: PresenterToInteractorHomeProtocol {
             }
             
         }
-    }   
+    }
+    
+    func searchFoods(with searchTerm: String) {
+        AF.request("http://kasimadalan.pe.hu/yemekler/tumYemekleriGetir.php", method: .get).response { [weak self] response in
+            guard let self = self else { return }
+            if let data = response.data {
+                do {
+                    let response = try JSONDecoder().decode(Foods.self, from: data)
+                    print(data)
+                    if let list = response.yemekler {
+                        var searchedFoodList = [Food]()
+                        for food in list {
+                            if food.yemek_adi!.lowercased().contains(searchTerm.lowercased()) {
+                                searchedFoodList.append(food)
+                            }
+                        }
+                        DispatchQueue.main.async {
+                            self.homePresenter?.didDataFecth(with: searchedFoodList)
+                        }
+                    }
+                }catch{
+                    print(error.localizedDescription)
+                }
+            }
+            
+        }
+    }
 }

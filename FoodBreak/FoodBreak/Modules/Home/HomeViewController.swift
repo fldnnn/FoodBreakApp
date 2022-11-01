@@ -11,6 +11,8 @@ import Kingfisher
 class HomeViewController: UIViewController {
 
     @IBOutlet private weak var foodsCollectionView: UICollectionView!
+    @IBOutlet private weak var usernameLabel: UILabel!
+    @IBOutlet weak var foodSearchBar: UISearchBar!
     
     var foodList = [Food]()
     
@@ -25,23 +27,13 @@ class HomeViewController: UIViewController {
         HomeRouter.createModule(ref: self)
         setupUI()
 
-        navigationItem.title = " "
-
         homePresenterObject?.viewDidLoad()
         
-        let appearance = UITabBarAppearance()
-        appearance.backgroundColor = .white
-        tabBarController?.tabBar.frame.size.height = 50
-        
-        changeColor(itemAppearance: appearance.stackedLayoutAppearance)
-        changeColor(itemAppearance: appearance.inlineLayoutAppearance)
-        changeColor(itemAppearance: appearance.compactInlineLayoutAppearance)
-        
-        tabBarController?.tabBar.standardAppearance = appearance
-        tabBarController?.tabBar.scrollEdgeAppearance = appearance
+        foodSearchBar.delegate = self
     }
     
     private func setupUI() {
+        //CollectionView
         let design = UICollectionViewFlowLayout()
         design.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         design.minimumInteritemSpacing = 10
@@ -52,7 +44,23 @@ class HomeViewController: UIViewController {
         design.itemSize = CGSize(width: cellWidth, height: cellWidth*1.5)
         
         foodsCollectionView.collectionViewLayout = design
+        
+        //TabBar
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = .white
+        tabBarController?.tabBar.frame.size.height = 50
+        
+        changeColor(itemAppearance: appearance.stackedLayoutAppearance)
+        changeColor(itemAppearance: appearance.inlineLayoutAppearance)
+        changeColor(itemAppearance: appearance.compactInlineLayoutAppearance)
+        
+        tabBarController?.tabBar.standardAppearance = appearance
+        tabBarController?.tabBar.scrollEdgeAppearance = appearance
+        
+        let username = UserDefaults.standard.value(forKey: "username")
+        usernameLabel.text = "Merhaba \(username ?? "")!"
     }
+    
     private func changeColor(itemAppearance: UITabBarItemAppearance) {
         itemAppearance.selected.iconColor = .black
         itemAppearance.selected.titleTextAttributes = [.foregroundColor: UIColor.black]
@@ -75,6 +83,16 @@ extension HomeViewController: PresenterToViewHomeProtocol {
     func updateView(with foodList: [Food]) {
         self.foodList = foodList
         self.foodsCollectionView.reloadData()
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            homePresenterObject?.viewDidLoad()
+        } else {
+            homePresenterObject?.onSearchButtonPressed(with: searchText)
+        }
     }
 }
 

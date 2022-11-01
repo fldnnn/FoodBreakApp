@@ -12,12 +12,14 @@ protocol ViewToPresenterHomeProtocol {
     var homeView: PresenterToViewHomeProtocol? {get set}
     
     func viewDidLoad()
+    func onSearchButtonPressed(with searchTerm: String)
 }
 
 protocol PresenterToInteractorHomeProtocol {
     var homePresenter: InteractorToPresenterHomeProtocol? {get set}
     
     func getFoods()
+    func searchFoods(with searchTerm: String)
 }
 
 protocol InteractorToPresenterHomeProtocol {

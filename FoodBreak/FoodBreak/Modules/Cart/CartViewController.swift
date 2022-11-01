@@ -12,7 +12,7 @@ class CartViewController: UIViewController {
     @IBOutlet weak var cartTableView: UITableView!
     @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var emptyStateView: UIView!
-    
+    @IBOutlet weak var deleteButtonOutlet: UIButton!
     
     var cartFoodList = [SepetYemek]()
     
@@ -26,6 +26,23 @@ class CartViewController: UIViewController {
         cartTableView.dataSource = self
     
     }
+    @IBAction func deleteAllFoods(_ sender: Any) {
+        let alert = UIAlertController(title: "Silme İşlemi", message: "Sepetteki tüm ürünleri silmek istediğinize emin misiniz?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "Hayır", style: .cancel)
+        alert.addAction(cancelAction)
+        
+        let deleteAction = UIAlertAction(title: "Evet", style: .destructive) { [weak self] action in
+            for item in (self?.cartFoodList)! {
+                self?.cartPresenterObject?.deleteFood(with: Int(item.sepet_yemek_id!)!)
+            }
+        }
+        alert.addAction(deleteAction)
+        
+        self.present(alert, animated: true)
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         cartPresenterObject?.viewDidLoad()
     }
@@ -38,6 +55,7 @@ extension CartViewController: PresenterToViewCartProtocol {
         
         if cartFoodList.count == 0 {
             totalPriceLabel.isHidden = true
+            deleteButtonOutlet.isHidden = true
         } else {
             var result = 0
             for i in cartFoodList {
@@ -46,6 +64,7 @@ extension CartViewController: PresenterToViewCartProtocol {
                 let totalPrice = countItems * priceItems
                 result += totalPrice
                 totalPriceLabel.isHidden = false
+                deleteButtonOutlet.isHidden = false
                 totalPriceLabel.text = "Toplam fiyat: \(result)₺"
             }
         }

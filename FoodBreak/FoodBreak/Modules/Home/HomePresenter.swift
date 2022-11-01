@@ -13,7 +13,11 @@ class HomePresenter: ViewToPresenterHomeProtocol {
     
     func viewDidLoad() {
         homeInteractor?.getFoods()
-    }   
+    }
+    
+    func onSearchButtonPressed(with searchTerm: String) {
+        homeInteractor?.searchFoods(with: searchTerm)
+    }
 }
 
 extension HomePresenter: InteractorToPresenterHomeProtocol {

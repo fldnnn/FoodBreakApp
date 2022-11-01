@@ -25,11 +25,10 @@ class DetailFoodViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DetailFoodRouter.createModule(ref: self)
-        addToCartOutlet.cornerButton()
-        addToCartOutlet.backgroundColor = .black
-        navigationController?.navigationBar.tintColor = UIColor.black
-        navigationItem.backButtonTitle = " "
+        setupDetailUI()
         detailImageView.addShadow()
+        addToCartOutlet.cornerButton()
+        
         if let f = food {
             priceLabel.text = "₺\(f.yemek_fiyat!)"
             nameLabel.text = f.yemek_adi
@@ -40,6 +39,12 @@ class DetailFoodViewController: UIViewController {
                 self.detailImageView.kf.setImage(with: url)
             }
         }
+    }
+    
+    private func setupDetailUI() {
+        addToCartOutlet.backgroundColor = .black
+        navigationController?.navigationBar.tintColor = UIColor.black
+        //navigationItem.backButtonTitle = " "
     }
 
     @IBAction private func stepperButton(_ sender: UIStepper) {
