@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         homePresenterObject?.viewDidLoad()
         
         foodSearchBar.delegate = self
+        navigationController?.navigationBar.barTintColor = .white
     }
     
     private func setupUI() {

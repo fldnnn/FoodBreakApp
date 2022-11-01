@@ -26,6 +26,7 @@ class CartViewController: UIViewController {
         cartTableView.dataSource = self
     
     }
+    
     @IBAction func deleteAllFoods(_ sender: Any) {
         let alert = UIAlertController(title: "Silme İşlemi", message: "Sepetteki tüm ürünleri silmek istediğinize emin misiniz?", preferredStyle: .alert)
         
@@ -41,7 +42,6 @@ class CartViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         cartPresenterObject?.viewDidLoad()
@@ -104,6 +104,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return cell
     }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Sil"){(ca, v, b) in
             let foods = self.cartFoodList[indexPath.row]
